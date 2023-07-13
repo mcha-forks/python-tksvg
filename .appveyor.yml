@@ -16,13 +16,13 @@ install:
   - bash -lc "mv /etc/pacman.d/mirrorlist.mingw64.pacnew /etc/pacman.d/mirrorlist.mingw64"
   - bash -lc "mv /etc/pacman.d/mirrorlist.msys.pacnew /etc/pacman.d/mirrorlist.msys"
   # Load PGP Keys for Msys64
-  - appveyor DownloadFile https://repo.msys2.org/msys/x86_64/msys2-keyring-1~20210213-2-any.pkg.tar.zst
-  - appveyor DownloadFile https://repo.msys2.org/msys/x86_64/msys2-keyring-1~20210213-2-any.pkg.tar.zst.sig
+  - appveyor DownloadFile https://repo.msys2.org/msys/x86_64/msys2-keyring-1~20230703-1-any.pkg.tar.zst
+  - appveyor DownloadFile https://repo.msys2.org/msys/x86_64/msys2-keyring-1~20230703-1-any.pkg.tar.zst.sig
   - dir
-  - zstd\zstd.exe -d msys2-keyring-1~20210213-2-any.pkg.tar.zst
-  - bash -lc "cd /c/projects/python-tksvg; ls -l; pacman -U --noconfirm --config <(echo) msys2-keyring-1~20210213-2-any.pkg.tar"
+  - zstd\zstd.exe -d msys2-keyring-1~20230703-1-any.pkg.tar.zst
+  - bash -lc "cd /c/projects/python-tksvg; ls -l; pacman -U --noconfirm --config <(echo) msys2-keyring-1~20230703-1-any.pkg.tar"
   # Verify signature AFTER updating the keyring because MSYS messes with keys too much
-  - bash -lc "cd /c/projects/python-tksvg; ls -l; pacman-key --verify msys2-keyring-1~20210213-2-any.pkg.tar.zst.sig"
+  - bash -lc "cd /c/projects/python-tksvg; ls -l; pacman-key --verify msys2-keyring-1~20230703-1-any.pkg.tar.zst.sig"
   # Kill gpg-agent due to bug in MSYS
   - START /wait taskkill /f /im gpg-agent.exe
   # Download and install zstd for MSYS due to bug in MSYS
