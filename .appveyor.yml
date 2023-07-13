@@ -12,7 +12,9 @@ install:
   - zstd\zstd.exe -d pacman-mirrors-20221016-1-any.pkg.tar.zst
   - 7z a -tgzip pacman-mirrors-20221016-1-any.pkg.tar.gz pacman-mirrors-20221016-1-any.pkg.tar
   - bash -lc "cd /c/projects/python-tksvg; ls -l; pacman -U --overwrite=* --noconfirm --config <(echo) pacman-mirrors-20221016-1-any.pkg.tar.gz"
-  - bash -lc "mv /etc/pacman.d/mirrorlist.mingw.pacnew /etc/pacman.d/mirrorlist.mingw"
+  - bash -lc "mv /etc/pacman.d/mirrorlist.mingw32.pacnew /etc/pacman.d/mirrorlist.mingw32"
+  - bash -lc "mv /etc/pacman.d/mirrorlist.mingw64.pacnew /etc/pacman.d/mirrorlist.mingw64"
+  - bash -lc "mv /etc/pacman.d/mirrorlist.msys.pacnew /etc/pacman.d/mirrorlist.msys"
   # Load PGP Keys for Msys64
   - appveyor DownloadFile https://repo.msys2.org/msys/x86_64/msys2-keyring-1~20210213-2-any.pkg.tar.zst
   - appveyor DownloadFile https://repo.msys2.org/msys/x86_64/msys2-keyring-1~20210213-2-any.pkg.tar.zst.sig
