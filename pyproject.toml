@@ -4,4 +4,24 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "tksvg"
-version = "0.7.3"
+version = "0.14.0"
+description = "SVG support for PhotoImage in Tk 8.6"
+author = "The tksvg authors"
+url = "https://github.com/TkinterEP/tksvg"
+
+[tool.cibuildwheel]
+skip = ["cp36-*", "cp37-*"]
+
+[tool.cibuildwheel.linux]
+before-all = "yum install -y tcl-devel tk-devel"
+
+[[tool.cibuildwheel.overrides]]
+select = "*-musllinux*"
+before-all = "apk add tcl-dev tk-dev"
+
+[[tool.cibuildwheel.overrides]]
+select = "*-manylinux_2_24*"
+brefore-all = "apt-get install -y tcl-dev tk-dev"
+
+[tool.cibuildwheel.macos]
+before-all = "brew install tcl-tk"
