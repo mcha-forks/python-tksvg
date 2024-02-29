@@ -48,7 +48,9 @@ find_package(TclStub REQUIRED)
 # ===========================================================================
 # Target: tksvg shared library
 # ===========================================================================
-add_library(tksvg SHARED third_party/tksvg/generic/tkImgSVG.c)
+configure_file(third_party/tksvg/generic/tkImgSVG.c
+               ${CMAKE_CURRENT_BINARY_DIR}/tkImgSVG.c)
+add_library(tksvg SHARED ${CMAKE_CURRENT_BINARY_DIR}/tkImgSVG.c)
 target_link_libraries(tksvg PRIVATE ${TCL_STUB_LIBRARY})
 target_link_libraries(tksvg PRIVATE ${TK_STUB_LIBRARY})
 
