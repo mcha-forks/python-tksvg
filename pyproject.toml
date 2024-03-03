@@ -18,6 +18,3 @@ before-all = "yum install -y tcl-devel tk-devel"
 [[tool.cibuildwheel.overrides]]
 select = "*-musllinux*"
 before-all = "apk add tcl-dev tk-dev"
-
-[tool.cibuildwheel.macos]
-before-all = "brew install tcl-tk"
