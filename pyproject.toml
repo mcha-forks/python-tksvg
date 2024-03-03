@@ -19,10 +19,6 @@ before-all = "yum install -y tcl-devel tk-devel"
 select = "*-musllinux*"
 before-all = "apk add tcl-dev tk-dev"
 
-[[tool.cibuildwheel.overrides]]
-select = "*-manylinux_2_24*"
-brefore-all = "apt-get install -y tcl-dev tk-dev"
-
 [tool.cibuildwheel.macos]
 # https://github.com/actions/runner-images/issues/9441#issuecomment-1976928303
 before-all = "brew install tcl-tk"
